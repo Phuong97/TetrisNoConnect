@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using System.Threading;
 namespace Tetris
 {
     public partial class Form1 : Form
@@ -12,20 +12,24 @@ namespace Tetris
 
         Play player = new Play();
         Block currentBlock;
+        Block nextBlock;
         Info info = new Info();
+        Block nextnextBlock;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             player.Init(panel1);
-            PlayGame();
+            PlayGame(); 
         }
 
         public void PlayGame()
         {
             currentBlock = player.CreatBlock();
+            nextBlock = player.CreatBlock();
             player.DrawBlock(currentBlock);
+            player.DrawBlockNext(panel2,nextBlock);
             player.setInfo(info,timer1.Interval);
-            DrawInfo();
+            DrawInfo();   
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -64,18 +68,23 @@ namespace Tetris
             label3.Text = info.Level.ToString();
         }
 
+       
         private void timer1_Tick(object sender, EventArgs e)
         {
             player.DeleteBlock(currentBlock);
             player.DrawBlock(player.MoveDown(ref currentBlock));
             if (player.ConditionDown(currentBlock) == false)
             {
+                nextnextBlock = player.CreatBlock();
+                //nextBlock = player.CreatBlock();
+                player.DrawBlockNext(panel2,nextnextBlock);
                 player.DrawBlockInMap(currentBlock);
                 int kq = player.Check(currentBlock,info);
                 DrawInfo();
-                currentBlock = player.CreatBlock();
                 player.DrawBlock(currentBlock);
-                player.Draw();
+                currentBlock = nextBlock;
+                nextBlock = nextnextBlock;
+                //player.Draw();
                 timer1.Interval = info.Speed;
             }
 

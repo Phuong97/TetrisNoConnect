@@ -13,6 +13,7 @@ namespace Tetris
         public void Init(Panel p)
         {
             board.DrawBoard(p);
+           
         }
 
         //2. Khoi tao Block
@@ -64,7 +65,19 @@ namespace Tetris
                 }
             }
         }
-
+        //Get Color
+        public Color[,] getColor()
+        {
+            Color[,] ColorBoard = new Color[board.Row1, board.Column1];
+            for (int i = board.Row1-1; i >= 4; i--)
+            {
+                for (int j = 0; j < board.Column1; j++)
+                {
+                    ColorBoard[i, j] = board.Map1[i-1 , j].BackColor;
+                }
+            }
+            return ColorBoard;
+        }
         //Draw
         public void Draw()
         {
@@ -94,6 +107,10 @@ namespace Tetris
             board.DrawBlock(block);
         }
 
+        public void DrawBlockNext(Panel p,Block block)
+        {
+            board.DrawBlockNext(p,block);
+        }
 
         // 3.Rotate
         public bool ConditionRotate(Block b)
@@ -198,19 +215,7 @@ namespace Tetris
 
         //WIN LOSEEEEE
 
-        //Get Color
-        public Color[,] getColor()
-        {
-            Color[,] ColorBoard = new Color[board.Row1, board.Column1];
-            for(int i = 0; i< board.Row1;i++)
-            {
-                for(int j = 0;j<board.Column1;j++)
-                {
-                    ColorBoard[i, j] = board.Map1[i, j].BackColor;
-                }
-            }
-            return ColorBoard;
-        }
+        
         public void UpdateMap(int row)
         {
             for (int i = row; i > 0; i--)
@@ -220,6 +225,7 @@ namespace Tetris
                     board.MapPlayGame1[i, j] = board.MapPlayGame1[i - 1, j];
                 }
             }
+
         }
         public int Check(Block block, Info info)
         {

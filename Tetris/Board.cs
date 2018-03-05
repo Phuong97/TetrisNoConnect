@@ -26,6 +26,39 @@ namespace Tetris
             Map1 = new Label[Row1, Column1];
             MapPlayGame1 = new int[Row1, Column1];
         }
+        public void DeleteNextBlock()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Map1[i, j].Hide();
+                    //Map1[i, j].BackColor = Color.White;
+                }
+            }
+        }
+        public void DrawBlockNext(Panel p,Block block)
+        {
+            DeleteNextBlock();
+            
+            for (int i = 0; i < block.Row1; i++)
+            {
+                for (int j = 0; j < block.Column1; j++)
+                {
+                    Map1[i, j].Show();
+                    if (block.Arr[i, j] == 1)
+                    {
+                        Map1[i, j].BackColor = block.Color;
+                        p.Controls.Add(Map1[i, j]);
+                    }
+                    if(block.Arr[i,j]==0)
+                    {
+                        Map1[i, j].BackColor = Color.Black;
+                        p.Controls.Add(Map[i, j]);
+                    }
+                }
+            }
+        }
 
         public void DrawBlock(Block block)
         {
@@ -51,13 +84,12 @@ namespace Tetris
             {
                 //if (i > 3)
                 //{
-                y += 30;
-                x = p.Location.X;
-                //}
+                    y += 30;
+                    x = p.Location.X;
+               // }
                 for (int j = 0; j < board.Column1; j++)
                 {
-                    //if (i > 3)
-                    //{
+                    
                     point = new Point(x, y);
                     Map1[i, j] = new Label();
                     Map1[i, j].Text = i.ToString() + j.ToString();
@@ -74,12 +106,17 @@ namespace Tetris
 
                     Map1[i, j].BorderStyle = BorderStyle.FixedSingle;
                     p.Controls.Add(Map1[i, j]);
-                    x += 30;
+                    //if (i > 3)
+                    //{
+                        x += 30;
                     //}
 
                 }
+                
             }
+           
         }
+
 
     }
 }

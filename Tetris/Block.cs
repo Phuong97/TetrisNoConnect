@@ -51,8 +51,8 @@ namespace Tetris
                 case 1:
                     block.Row = 1;
                     block.Column = 4;
-                    block.IBoard = 0;
-                    block.JBoard = 3;
+                    block.IBoard = 3;
+                    block.JBoard = 4;
                     block.Arr = new int[,] {
                         {1,1,1,1}
                     };
@@ -61,7 +61,7 @@ namespace Tetris
                 case 2:
                     block.Row = 2;
                     block.Column = 2;
-                    block.IBoard = 0;
+                    block.IBoard = 3;
                     block.JBoard = 4;
                     block.Arr = new int[,] {
                         {1,1},
@@ -72,8 +72,8 @@ namespace Tetris
                 case 3:
                     block.Row = 2;
                     block.Column = 3;
-                    block.IBoard = 0;
-                    block.JBoard = 3;
+                    block.IBoard = 3;
+                    block.JBoard = 4;
                     block.Arr = new int[,] {
                         {1,1,1},
                         {0,0,1}
@@ -84,8 +84,8 @@ namespace Tetris
                 case 4:
                     block.Row = 2;
                     block.Column = 3;
-                    block.IBoard = 0;
-                    block.JBoard = 3;
+                    block.IBoard = 3;
+                    block.JBoard = 4;
                     block.Arr = new int[,] {
                          {1,1,1},
                          {1,0,0}
@@ -96,8 +96,8 @@ namespace Tetris
                 case 5:
                     block.Row = 3;
                     block.Column = 2;
-                    block.IBoard = 0;
-                    block.JBoard = 3;
+                    block.IBoard = 3;
+                    block.JBoard = 4;
                     block.Arr = new int[,] {
                          {1,0},
                          {1,1},
@@ -108,8 +108,8 @@ namespace Tetris
                 case 6:
                     block.Row = 2;
                     block.Column = 3;
-                    block.IBoard = 0;
-                    block.JBoard = 3;
+                    block.IBoard = 3;
+                    block.JBoard = 4;
                     block.Arr = new int[,] {
                          {1,1,0},
                          {0,1,1}
@@ -119,8 +119,8 @@ namespace Tetris
                 case 7:
                     block.Row = 2;
                     block.Column = 3;
-                    block.IBoard = 0;
-                    block.JBoard = 3;
+                    block.IBoard = 3;
+                    block.JBoard = 4;
                     block.Arr = new int[,] {
                         {1,1,1},
                         {0,1,0}
