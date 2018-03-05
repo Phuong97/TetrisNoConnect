@@ -65,30 +65,19 @@ namespace Tetris
                 }
             }
         }
-        //Get Color
-        public Color[,] getColor()
-        {
-            Color[,] ColorBoard = new Color[board.Row1, board.Column1];
-            for (int i = board.Row1-1; i >= 4; i--)
-            {
-                for (int j = 0; j < board.Column1; j++)
-                {
-                    ColorBoard[i, j] = board.Map1[i-1 , j].BackColor;
-                }
-            }
-            return ColorBoard;
-        }
+       
         //Draw
         public void Draw()
         {
-            Color[,] ColorBoard = getColor();
-            for (int i = 0; i < board.Row1; i++)
+            //Color[,] ColorBoard = getColor();
+            for (int i = 4; i < board.Row1; i++)
             {
                 for (int j = 0; j < board.Column1; j++)
                 {
                     if (board.MapPlayGame1[i, j] == 1)
                     {
-                        board.Map1[i, j].BackColor = ColorBoard[i,j];
+                        //board.Map1[i, j].BackColor = ColorBoard[i,j];
+                        board.Map1[i, j].BackColor = board.Map1[i, j].BackColor;
                     }
                     else
                     {
@@ -223,6 +212,7 @@ namespace Tetris
                 for (int j = 0; j < 10; j++)
                 {
                     board.MapPlayGame1[i, j] = board.MapPlayGame1[i - 1, j];
+                    board.Map1[i, j].BackColor = board.Map1[i-1, j].BackColor;
                 }
             }
 

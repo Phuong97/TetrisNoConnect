@@ -10,12 +10,14 @@ namespace Tetris
         private int Column;
         private Label[,] Map;
         private int[,] MapPlayGame;
+       
 
         //Property
         public Label[,] Map1 { get => Map; set => Map = value; }
         public int Column1 { get => Column; set => Column = value; }
         public int Row1 { get => Row; set => Row = value; }
         public int[,] MapPlayGame1 { get => MapPlayGame; set => MapPlayGame = value; }
+        
 
 
         //Constructor
@@ -25,6 +27,7 @@ namespace Tetris
             Column1 = 10;
             Map1 = new Label[Row1, Column1];
             MapPlayGame1 = new int[Row1, Column1];
+          
         }
         public void DeleteNextBlock()
         {

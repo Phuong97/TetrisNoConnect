@@ -84,7 +84,7 @@ namespace Tetris
                 player.DrawBlock(currentBlock);
                 currentBlock = nextBlock;
                 nextBlock = nextnextBlock;
-                //player.Draw();
+                player.Draw();
                 timer1.Interval = info.Speed;
             }
 
